@@ -14,5 +14,8 @@ public interface Sensor {
 	
 	public Boolean checkSensors(int sensorSetID);
 	public String SensorData(int sensorSetID, String view);
-	public void ViewMenu();
+	public static void ViewMenu() {
+		// TODO Auto-generated method stub
+		
+	}
 }

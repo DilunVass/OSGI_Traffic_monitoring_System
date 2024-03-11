@@ -71,7 +71,6 @@ public class SensorImpl implements Sensor{
 		return null;
 	}
 
-	@Override
 	public void ViewMenu() {
 		// TODO Auto-generated method stub
 		System.out.println("****************************************");

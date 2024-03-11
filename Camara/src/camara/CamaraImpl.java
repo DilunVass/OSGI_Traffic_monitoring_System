@@ -31,7 +31,6 @@ public class CamaraImpl implements Camara {
 		return ("Camara ID = " + cam + " shows " + view + ".");
 	}
 
-	@Override
 	public void ViewMenu() {
 		// TODO Auto-generated method stub
 		System.out.println("****************************************");

@@ -13,5 +13,8 @@ public interface Camara {
 	
 	public String View(int camID, String view);
 	
-	public void ViewMenu();
+	public static void ViewMenu() {
+		// TODO Auto-generated method stub
+		
+	}
 }
