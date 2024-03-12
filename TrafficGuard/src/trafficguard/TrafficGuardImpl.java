@@ -31,12 +31,25 @@ public class TrafficGuardImpl {
 		
 	}
 	
-	public static void Cam() {
+	public static void Cam(Camara cam) {
 		Scanner sc = new Scanner(System.in);
-		Camara.ViewMenu();
+		cam.ViewMenu();
+		
+		int id;
+		String camView;
+		
+		System.out.print("Enter camara ID : ");
+		id = sc.nextInt();
+		
+		System.out.print("Enter camara view : ");
+		camView = sc.next();
+		
+//		cam.View(id, camView);
+		System.out.println("Camara shows : " + cam.View(id, camView));
+		System.out.print("Enter camara view : " + camView);
 	}
 	
-	public static void Sens() {
-		Sensor.ViewMenu();
+	public static void Sens(Sensor sens) {
+		sens.ViewMenu();
 	}
 }

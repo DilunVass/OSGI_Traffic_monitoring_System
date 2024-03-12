@@ -23,7 +23,7 @@ public class Activator implements BundleActivator {
 		Activator.context = bundleContext;
 		System.out.println("Fetching traffic monitoring system...");
 		Scanner sc = new Scanner(System.in);
-//		String choice = "no";
+		String choice = "no";
 		
 		ServiceReference serviceCam = context.getServiceReference(Camara.class);
 		ServiceReference serviceSensor = context.getServiceReference(Sensor.class);
@@ -31,83 +31,85 @@ public class Activator implements BundleActivator {
 			camara = (Camara) context.getService(serviceCam);
 			sensor = (Sensor) context.getService(serviceSensor);
 			
-			
-			
 			if(camara != null && sensor != null) {
 				
-				int choice = TrafficGuardImpl.Select();
+				System.out.println("");
+				System.out.println("------------------------------------------------------------------------------------------------");
+				System.out.println("");
+				System.out.println("Do you want traffic monitoring system? yes or no");
+				System.out.println("");
+				choice = sc.next();
 				
-				if(choice == 1) {
-					System.out.println("camara...");
-					System.out.println("****************************************");
-					System.out.println("Camaras");
-					System.out.println("");
-					System.out.println("Camara 1 : " + Camara.cam1);
-					System.out.println("Camara 2 : " + Camara.cam2);
-					System.out.println("Camara 3 : " + Camara.cam3);
-					System.out.println("");
-					int camID = sc.nextInt();
-					System.out.println("Camara views");
-					System.out.println(Camara.front_view + " : f or F");
-					System.out.println(Camara.rear_view + " : r or R");
-					System.out.println(Camara.right_side_view + " : rs or RS");
-					System.out.println(Camara.left_side_view + " : ls or LS");
-					System.out.println("****************************************");
-					String camView = sc.next();
-					
-					
-					String view = null;
-					switch(camID) {
-					case 1: camID = Camara.cam1;
-					break;
-					case 2: camID = Camara.cam2;
-					break;
-					case 3: camID = Camara.cam3;
-					break;
-					default : System.out.println("Invalid carama ID");
-				}
-				
-				if(camView == "f" || camView == "F") {
-					view = Camara.front_view;
-				}else if(camView == "r" || camView == "R") {
-					view = Camara.rear_view;
-				}else if(camView == "rs" || camView == "RS") {
-					view = Camara.right_side_view;
-				}else if(camView == "ls" || camView == "LS") {
-					view = Camara.left_side_view;
+				if(choice.equals("yes")) {
+					this.mainAction();
 				}else {
-					System.out.println("Invalid carama view.");
+					this.mainAction();
 				}
-				System.out.println ("Camara ID = " + camID + " shows " + view + ".");
-					
-				}else if(choice == 2) {
-					System.out.println("Sensors...");
-					TrafficGuardImpl.Sens();
-					System.out.println("****************************************");
-					System.out.println("Sensors");
-					System.out.println("");
-					System.out.println("Sensor Set 1 : " + Sensor.sensorSet1);
-					System.out.println("Sensor Set 2 : " + Sensor.sensorSet2);
-					System.out.println("Sensor Set 3 : " + Sensor.sensorSet3);
-					System.out.println("");
-					System.out.println("Sensor outputs");
-					System.out.println(Sensor.speed_sensor + " : s or S");
-					System.out.println(Sensor.light_sensor + " : l or L");
-					System.out.println(Sensor.rain_sensor + " : r or R");
-					System.out.println(Sensor.windSpeed_sensor + " : ws or WS");
-					System.out.println(Sensor.temperature_sensor + " : t or T");
-					System.out.println("****************************************");
-					
-					int test = sc.nextInt();
-				}
+				context.ungetService(serviceCam);
+				context.ungetService(serviceSensor);
+//				
+			}else {
+				System.out.println("Traffic monotoring Service cannot run.... ");
 			}
 			
-			
+		}else {
+			System.out.println("Traffic monotoring Service cannot be found!");
 		}
+		
+		System.out.println("TrafficGuard Consumer has stopped");
+	}
+	
+	
+	private void mainAction() {
+		Scanner sc = new Scanner(System.in);
+		
+		String whileCon = "no";
+		do {
+			int s = TrafficGuardImpl.Select();
+			
+			if(s == 1) {
+				ServiceReference serviceCam = context.getServiceReference(Camara.class);
+				if(serviceCam != null) {
+					camara = (Camara) context.getService(serviceCam);
+					
+					if(camara != null) {
+						TrafficGuardImpl.Cam(camara);
+						context.ungetService(serviceCam);
+					}else {
+						System.out.println("TrafficGuard bundle cannot run!");
+					}
+				}else {
+					System.out.println("TrafficGuard bundle cannot be found....");
+				}
+			}else if(s == 2) {
+				ServiceReference serviceSensor = context.getServiceReference(Sensor.class);
+				
+				if (serviceSensor != null) {
+					sensor = (Sensor) context.getService(serviceSensor);
+					if(sensor != null) {
+						TrafficGuardImpl.Sens(sensor);
+						context.ungetService(serviceSensor);
+					}else {
+						System.out.println("TrafficGuard bundle cannot run!");
+					}
+				}else {
+					System.out.println("TrafficGuard bundle cannot be found....");
+				}
+			}else {
+				System.out.println("invalid input...");
+			}
+			System.out.println("----------------------------------------------------");
+			System.out.println("Do you want to exit? \n 'yes' for YES \n 'no' for NO");
+			System.out.println("");
+
+			whileCon = sc.next();
+			
+		}while(whileCon.equals("no"));
 	}
 
 	public void stop(BundleContext bundleContext) throws Exception {
 		Activator.context = null;
+		System.out.println("TrafficGuard bundle stopped!");
 	}
 
 }

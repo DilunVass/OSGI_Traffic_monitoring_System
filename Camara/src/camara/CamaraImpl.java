@@ -17,17 +17,26 @@ public class CamaraImpl implements Camara {
 			default : System.out.println("Invalid carama ID");
 		}
 		
-		if(camView == "f" || camView == "F") {
-			view = Camara.front_view;
-		}else if(camView == "r" || camView == "R") {
-			view = Camara.rear_view;
-		}else if(camView == "rs" || camView == "RS") {
-			view = Camara.right_side_view;
-		}else if(camView == "ls" || camView == "LS") {
-			view = Camara.left_side_view;
-		}else {
-			System.out.println("Invalid carama view.");
+		switch(camView) {
+			case "f" : view = Camara.front_view;
+			break;
+			case "F" : view = Camara.front_view;
+			break;
+			case "r" : view = Camara.rear_view;
+			break;
+			case "R" : view = Camara.rear_view;
+			break;
+			case "rs" : view = Camara.right_side_view;
+			break;
+			case "RS" : view = Camara.right_side_view;
+			break;
+			case "ls" : view = Camara.left_side_view;
+			break;
+			case "LS" : view = Camara.left_side_view;
+			break;
+			default : view = "Invalid camara view";
 		}
+		
 		return ("Camara ID = " + cam + " shows " + view + ".");
 	}
 
