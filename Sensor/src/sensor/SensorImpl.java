@@ -21,54 +21,146 @@ public class SensorImpl implements Sensor{
 	}
 
 	@Override
-	public String SensorData(int sensorSetID, String view) {
+	public String SensorData(int sensorSetID, String type) {
 		// TODO Auto-generated method stub
+		
+		String output = "";
+
+		// switch (sensorSetID) {
+		// 	case 1: 
+		// 	break;
+		// 	case 2: {switch (type) {
+		// 		case "s": return Sensor.speed_sensor;
+		// 		break;
+		// 		case "S": return Sensor.speed_sensor;
+		// 		break;
+		// 		case "l": return Sensor.light_sensor;
+		// 		break;
+		// 		case "L": return Sensor.light_sensor;
+		// 		break;
+		// 		case "r": return Sensor.rain_sensor;
+		// 		break;
+		// 		case "R": return Sensor.rain_sensor;
+		// 		break;
+		// 		case "ws": return Sensor.windSpeed_sensor;
+		// 		break;
+		// 		case "WS": return Sensor.windSpeed_sensor;
+		// 		break;
+		// 		case "t": return Sensor.temperature_sensor;
+		// 		break;
+		// 		case "T": return Sensor.temperature_sensor;
+		// 		break;
+		// 		default: return "Invalid input.";
+		// 		break;
+		// 		}
+		// 	break;
+		// 	}
+		// 	case 3: switch (type) {
+		// 		case "s": return Sensor.speed_sensor;
+		// 		break;
+		// 		case "S": return Sensor.speed_sensor;
+		// 		break;
+		// 		case "l": return Sensor.light_sensor;
+		// 		break;
+		// 		case "L": return Sensor.light_sensor;
+		// 		break;
+		// 		case "r": return Sensor.rain_sensor;
+		// 		break;
+		// 		case "R": return Sensor.rain_sensor;
+		// 		break;
+		// 		case "ws": return Sensor.windSpeed_sensor;
+		// 		break;
+		// 		case "WS": return Sensor.windSpeed_sensor;
+		// 		break;
+		// 		case "t": return Sensor.temperature_sensor;
+		// 		break;
+		// 		case "T": return Sensor.temperature_sensor;
+		// 		break;
+		// 		default: return "Invalid input.";
+		// 	}
+			
+		// 	break;
+		// 	default: return "Invalid sensor ID.";
+		// 		break;
+		// }
 		if(sensorSetID == 1) {
-			if(view == "s" || view == "S") {
-				return Sensor.speed_sensor;
-			}else if(view == "l" || view == "L") {
-				return Sensor.light_sensor;
-			}else if(view == "r" || view == "R") {
-				return Sensor.rain_sensor;
-			}else if(view == "ws" || view == "WS") {
-				return Sensor.windSpeed_sensor;
-			}else if(view == "t" || view == "T") {
-				return Sensor.temperature_sensor;
-			}else {
-				return "Invalid sensor ID.";
+			switch (type) {
+				case "s": output = Sensor.speed_sensor;
+				break;
+				case "S": output = Sensor.speed_sensor;
+				break;
+				case "l": output = Sensor.light_sensor;
+				break;
+				case "L": output = Sensor.light_sensor;
+				break;
+				case "r": output = Sensor.rain_sensor;
+				break;
+				case "R": output = Sensor.rain_sensor;
+				break;
+				case "ws": output = Sensor.windSpeed_sensor;
+				break;
+				case "WS": output = Sensor.windSpeed_sensor;
+				break;
+				case "t": output = Sensor.temperature_sensor;
+				break;
+				case "T": output = Sensor.temperature_sensor;
+				break;
+				default: output = "Invalid input.";
 			}
 		}
 		else if(sensorSetID == 2) {
-			if(view == "s" || view == "S") {
-				return Sensor.speed_sensor;
-			}else if(view == "l" || view == "L") {
-				return Sensor.light_sensor;
-			}else if(view == "r" || view == "R") {
-				return Sensor.rain_sensor;
-			}else if(view == "ws" || view == "WS") {
-				return Sensor.windSpeed_sensor;
-			}else if(view == "t" || view == "T") {
-				return Sensor.temperature_sensor;
-			}else {
-				return "Invalid sensor ID.";
+			switch (type) {
+				case "s": output = Sensor.speed_sensor;
+				break;
+				case "S": output = Sensor.speed_sensor;
+				break;
+				case "l": output = Sensor.light_sensor;
+				break;
+				case "L": output = Sensor.light_sensor;
+				break;
+				case "r": output = Sensor.rain_sensor;
+				break;
+				case "R": output = Sensor.rain_sensor;
+				break;
+				case "ws": output = Sensor.windSpeed_sensor;
+				break;
+				case "WS": output = Sensor.windSpeed_sensor;
+				break;
+				case "t": output = Sensor.temperature_sensor;
+				break;
+				case "T": output = Sensor.temperature_sensor;
+				break;
+				default: output = "Invalid input.";
 			}
 		}
 		else if(sensorSetID == 3) {
-			if(view == "s" || view == "S") {
-				return Sensor.speed_sensor;
-			}else if(view == "l" || view == "L") {
-				return Sensor.light_sensor;
-			}else if(view == "r" || view == "R") {
-				return Sensor.rain_sensor;
-			}else if(view == "ws" || view == "WS") {
-				return Sensor.windSpeed_sensor;
-			}else if(view == "t" || view == "T") {
-				return Sensor.temperature_sensor;
-			}else {
-				return "Invalid sensor ID.";
+			switch (type) {
+				case "s": output = Sensor.speed_sensor;
+				break;
+				case "S": output = Sensor.speed_sensor;
+				break;
+				case "l": output = Sensor.light_sensor;
+				break;
+				case "L": output = Sensor.light_sensor;
+				break;
+				case "r": output = Sensor.rain_sensor;
+				break;
+				case "R": output = Sensor.rain_sensor;
+				break;
+				case "ws": output = Sensor.windSpeed_sensor;
+				break;
+				case "WS": output = Sensor.windSpeed_sensor;
+				break;
+				case "t": output = Sensor.temperature_sensor;
+				break;
+				case "T": output = Sensor.temperature_sensor;
+				break;
+				default: output = "Invalid input.";
 			}
+		}else {
+			output = "invalid input";
 		}
-		return null;
+		return output;
 	}
 
 	public void ViewMenu() {
