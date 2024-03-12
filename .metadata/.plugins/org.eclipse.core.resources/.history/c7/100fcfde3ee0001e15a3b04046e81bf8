@@ -1,0 +1,5 @@
+package emergencyservice;
+
+public interface EmergencyService {
+
+}
