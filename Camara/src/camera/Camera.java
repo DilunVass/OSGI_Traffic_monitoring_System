@@ -1,6 +1,6 @@
-package camara;
+package camera;
 
-public interface Camara {
+public interface Camera {
 
 	public int cam1 = 1;
 	public int cam2 = 2;

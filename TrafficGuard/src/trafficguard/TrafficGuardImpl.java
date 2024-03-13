@@ -1,9 +1,10 @@
 package trafficguard;
 
-import camara.Camara;
 import sensor.Sensor;
 
 import java.util.Scanner;
+
+import camera.Camera;
 
 public class TrafficGuardImpl {
 
@@ -14,7 +15,7 @@ public class TrafficGuardImpl {
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("**********************************************");
-		System.out.println("Select what need to monitor. \n 1 : Camara \n 2 : Sensors");
+		System.out.println("Select what need to monitor. \n 1 : Camera \n 2 : Sensors");
 		System.out.println("");
 		
 		int select = sc.nextInt();
@@ -31,7 +32,7 @@ public class TrafficGuardImpl {
 		
 	}
 	
-	public static void Cam(Camara cam) {
+	public static void Cam(Camera cam) {
 		Scanner sc = new Scanner(System.in);
 		cam.ViewMenu();
 		

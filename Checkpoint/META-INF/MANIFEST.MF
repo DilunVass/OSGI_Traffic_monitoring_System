@@ -1,11 +1,11 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Camara
-Bundle-SymbolicName: Camera
+Bundle-Name: Checkpoint
+Bundle-SymbolicName: Checkpoint
 Bundle-Version: 1.0.0.qualifier
-Export-Package: camera
-Bundle-Activator: camera.Activator
+Bundle-Activator: checkpoint.Activator
 Bundle-RequiredExecutionEnvironment: JavaSE-17
-Automatic-Module-Name: Camara
+Automatic-Module-Name: Checkpoint
+Export-Package: checkpoint
 Import-Package: org.osgi.framework;version="1.3.0"
 Bundle-ActivationPolicy: lazy

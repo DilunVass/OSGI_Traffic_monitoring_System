@@ -6,13 +6,13 @@ import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 
+import camera.Camera;
 import sensor.Sensor;
-import camara.Camara;
 
 public class Activator implements BundleActivator {
 
 	private static BundleContext context;
-	private Camara camara;
+	private Camera camera;
 	private Sensor sensor;
 
 	static BundleContext getContext() {
@@ -25,13 +25,13 @@ public class Activator implements BundleActivator {
 		Scanner sc = new Scanner(System.in);
 		String choice = "no";
 		
-		ServiceReference serviceCam = context.getServiceReference(Camara.class);
+		ServiceReference serviceCam = context.getServiceReference(Camera.class);
 		ServiceReference serviceSensor = context.getServiceReference(Sensor.class);
 		if(serviceCam != null && serviceSensor != null) {
-			camara = (Camara) context.getService(serviceCam);
+			camera = (Camera) context.getService(serviceCam);
 			sensor = (Sensor) context.getService(serviceSensor);
 			
-			if(camara != null && sensor != null) {
+			if(camera != null && sensor != null) {
 				
 				System.out.println("");
 				System.out.println("------------------------------------------------------------------------------------------------");
@@ -68,12 +68,12 @@ public class Activator implements BundleActivator {
 			int s = TrafficGuardImpl.Select();
 			
 			if(s == 1) {
-				ServiceReference serviceCam = context.getServiceReference(Camara.class);
+				ServiceReference serviceCam = context.getServiceReference(Camera.class);
 				if(serviceCam != null) {
-					camara = (Camara) context.getService(serviceCam);
+					camera = (Camera) context.getService(serviceCam);
 					
-					if(camara != null) {
-						TrafficGuardImpl.Cam(camara);
+					if(camera != null) {
+						TrafficGuardImpl.Cam(camera);
 						context.ungetService(serviceCam);
 					}else {
 						System.out.println("TrafficGuard bundle cannot run!");
