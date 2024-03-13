@@ -1,0 +1,21 @@
+package trafficreport;
+
+import org.osgi.framework.BundleActivator;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.ServiceRegistration;
+
+public class Activator implements BundleActivator {
+
+	ServiceRegistration trafficReportPublisherRegistration;
+
+	public void start(BundleContext bundleContext) throws Exception {
+		TrafficReport trafficReport = new TrafficReportImpl();
+		trafficReportPublisherRegistration = bundleContext.registerService(TrafficReport.class.getName(), trafficReport, null);
+		System.out.println("Starting traffic report publisher");
+	}
+
+	public void stop(BundleContext bundleContext) throws Exception {
+		System.out.println("Stoped traffic report publisher");
+		trafficReportPublisherRegistration.unregister();
+	}
+}

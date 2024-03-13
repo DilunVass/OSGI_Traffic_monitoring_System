@@ -1,4 +1,4 @@
-package camara;
+package camera;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
@@ -12,20 +12,20 @@ public class Activator implements BundleActivator {
 	}
 	
 	private void CallInterface() {
-		Camara cam = new CamaraImpl();
-		context.registerService(Camara.class, cam, null);
+		Camera cam = new CameraImpl();
+		context.registerService(Camera.class, cam, null);
 	}
 
 	public void start(BundleContext bundleContext) throws Exception {
 		Activator.context = bundleContext;
-		System.out.println("Camara service started......");
+		System.out.println("Camera service started......");
 		this.CallInterface();
 		System.out.println("Welcome to camara system...");
 	}
 
 	public void stop(BundleContext bundleContext) throws Exception {
 		Activator.context = null;
-		System.out.println("Camara service system off...");
+		System.out.println("Camera service system off...");
 	}
 
 }
