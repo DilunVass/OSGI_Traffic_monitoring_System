@@ -13,16 +13,16 @@ public class EmergencyServiceImpl implements EmergencyService{
 		System.out.println("Hospital Service");
 		System.out.println("");
 		System.out.println("Ambulance is Called" + EmergencyService.Ambulance );
-		System.out.println("Ambulance will reach in " + time + "minutes" );
-		System.out.println("First Aid Instructions" + EmergencyService.FirstAid );
+		System.out.println("Ambulance will reach in " + time + " minutes" );
+		System.out.println("First Aid Instructions " + EmergencyService.FirstAid );
 		System.out.println("****************************************");
 	}
 
 	@Override
-	public void callGarage(String problem) {
+	public void callGarage(String location) {
 		// TODO Auto-generated method stub
 		System.out.println("****************************************");
-		System.out.println("Mechanical Support");
+		System.out.println("Mechanical Support for "+ location);
 		System.out.println("");
 		System.out.println("Towing Services " + emergencyService.TowingNo );
 		System.out.println("Mechanic or Repair Shop" + emergencyService.Mechanic );

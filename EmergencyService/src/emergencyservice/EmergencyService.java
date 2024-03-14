@@ -6,7 +6,8 @@ public interface EmergencyService {
 	public void callGarage(String problem);
 
 	public int Ambulance = 1990;
-	public String FirstAid = "Provide Basic First Aid:\r\n"
+	public String FirstAid = " *****************************************"
+			+ "Provide Basic First Aid:\r\n"
 			+ "\r\n"
 			+ "Check for responsiveness:\r\n"
 			+ "Ask loudly, \"Are you okay?\"\r\n"

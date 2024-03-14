@@ -36,11 +36,27 @@ public class Activator implements BundleActivator {
 					double distance = sc.nextDouble();
 					emergencyService.callHospital(distance);
 					
+					System.out.println("Ambulance is on the location in the given time");
+					System.out.println("please refer instructions given ....");
+						
 					
 				}else if(choice == 2) {
 					System.out.println("Enter location...");
 					String location = sc.next();
 					emergencyService.callGarage(location);
+					
+					int choice2 = DriverImpl.Select2();
+					
+					if(choice2== 1) {
+						System.out.println("Towing service called and will be on "+ location +"as soon as possible");
+						
+					}else if(choice2== 2){
+						System.out.println("Mechanic support called and will be on "+ location +"as soon as possible");
+
+					}else if(choice2== 2){
+						System.out.println("Fuel Service called and will be on "+ location +"as soon as possible");
+
+					}
 				}
 			}
 			
@@ -49,6 +65,7 @@ public class Activator implements BundleActivator {
 	}
 
 	public void stop(BundleContext bundleContext) throws Exception {
+		System.out.println("Good bye!!!");
 		Activator.context = null;
 	}
 
