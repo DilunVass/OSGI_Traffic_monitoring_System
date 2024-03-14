@@ -9,8 +9,8 @@ public class Activator implements BundleActivator {
 	ServiceRegistration trafficReportPublisherRegistration;
 
 	public void start(BundleContext bundleContext) throws Exception {
-		TrafficReport trafficReport = new TrafficReportImpl();
-		trafficReportPublisherRegistration = bundleContext.registerService(TrafficReport.class.getName(), trafficReport, null);
+		TrafficReportImpl trafficReport = new TrafficReportImpl();
+		trafficReportPublisherRegistration = bundleContext.registerService(TrafficReportImpl.class.getName(), trafficReport, null);
 		System.out.println("Starting traffic report publisher");
 	}
 

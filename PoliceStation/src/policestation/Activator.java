@@ -7,7 +7,7 @@ import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 
 import checkpoint.Checkpoint;
-import trafficreport.TrafficReport;
+import trafficreport.TrafficReportImpl;
 
 public class Activator implements BundleActivator {
 
@@ -22,7 +22,7 @@ public class Activator implements BundleActivator {
 	public void start(BundleContext bundleContext) throws Exception {
 		
 		checkpointServiceReference = bundleContext.getServiceReference(Checkpoint.class.getName());
-		trafficReportServiceReference = bundleContext.getServiceReference(TrafficReport.class.getName());
+		trafficReportServiceReference = bundleContext.getServiceReference(TrafficReportImpl.class.getName());
 		
 		this.displayDashboard(bundleContext);
 	}
@@ -37,7 +37,7 @@ public class Activator implements BundleActivator {
 	
 	public void displayDashboard(BundleContext bundleContext){
 		Checkpoint checkpoint = (Checkpoint) bundleContext.getService(checkpointServiceReference);
-		TrafficReport trafficReport = (TrafficReport) bundleContext.getService(trafficReportServiceReference);
+		TrafficReportImpl trafficReport = (TrafficReportImpl) bundleContext.getService(trafficReportServiceReference);
 		
 		System.out.println("==========================================================");
 		System.out.println("POLICE STATION");
@@ -45,19 +45,27 @@ public class Activator implements BundleActivator {
 		
 		System.out.println("Dashboard");
 		
-		while(true) {			
+		short response = 0;
+		
+		while(response != -99) {			
 			System.out.println("\n\n1). Get Checkpoint Location");
 			System.out.println("2). get traffic report");
 			System.out.print("Select your option : ");
-			short response = this.scanner.nextShort();
+			response = this.scanner.nextShort();
 			
 			if(response == 1) {			
 				System.out.println("\n> Location of the checkpoint");
 				System.out.println("\t" + checkpoint.getLocation());
-			}else if(response == 2) {			
+			}else if(response == 2) {
+				
+				System.out.println("\n\n1). Daily Report");
+				System.out.println("2). Weekly Report");
+				System.out.print("Select your option : ");
+				response = this.scanner.nextShort();
+				
 				System.out.println("\n> Traffic report\n");
-				System.out.println(trafficReport.getTrafficReport());
-			}else {
+				System.out.println(trafficReport.displayTrafficReport(response));
+			}else if(response != -99) {
 				System.out.println("Enter valid option!");
 			}
 		}

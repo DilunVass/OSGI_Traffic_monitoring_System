@@ -1,14 +1,17 @@
 package trafficreport;
 
-public class TrafficReportImpl implements TrafficReport{
+public class TrafficReportImpl{
 
-	@Override
-	public String getTrafficReport() {
-		String output = "++++ Traffic Report ++++++++++++++++++++++++++++++\n\n";
-		output += "-> road violations      : 2\n";
-		output += "-> emergency breakdowns : 4\n\n";
-		output += "++++++++++++++++++++++++++++++++++++++++++++++++++";
-		return output;
+	private TrafficReport trafficReport;
+	
+	public String displayTrafficReport(int response) {
+		if(response == 1) {
+			trafficReport = new DailyTrafficReport();
+			return trafficReport.getTrafficReport();
+		}else if(response == 2) {
+			trafficReport = new WeeklyTrafficReport();
+			return trafficReport.getTrafficReport();
+		}
+		return null;
 	}
-
 }
